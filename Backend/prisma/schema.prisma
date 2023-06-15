@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  admin        Boolean  @default(false)
+  name         String
+  lastName     String
+  nickname     String   @unique
+  profilePhoto String   @db.MediumText
+  email        String
+  password     String
+  roleLevel    String
+  phone        String
+  createdDate  DateTime @default(now())
+  Post         Post[]
+  Reply        Reply[]
+  Script       Script[]
+  Topic        Topic[]
+}
+
+model Topic {
+  id     String @id @default(uuid())
+  topic  String
+  userId String
+
+  user User   @relation(fields: [userId], references: [id])
+  Post Post[]
+}
+
+model Post {
+  id       String   @id @default(uuid())
+  userId   String
+  title    String
+  desc     String   @db.MediumText
+  postDate DateTime @default(now())
+  lastEdit DateTime @default(now())
+  topicId  String
+  report   Boolean  @default(false)
+  user     User     @relation(fields: [userId], references: [id])
+  topic    Topic    @relation(fields: [topicId], references: [id])
+  Reply    Reply[]
+
+  @@fulltext([title])
+}
+
+model Reply {
+  id        String   @id @default(uuid())
+  userId    String
+  postId    String
+  reply     String   @db.MediumText
+  report    Boolean  @default(false)
+  replyDate DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+  post Post @relation(fields: [postId], references: [id])
+}
+
+model Script {
+  id          String   @id @default(uuid())
+  userId      String
+  script      String   @db.MediumText
+  equipModel  String
+  equipBrand  String
+  createdDate DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+}
