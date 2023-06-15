@@ -1,0 +1,130 @@
+.footerContainerLight {
+  height: 30vh;
+  background-color: var(--orange-200);
+  display: flex;
+  .logo {
+    display: grid;
+
+    img {
+      margin: 2rem 0 1.5rem 5rem;
+      filter: brightness(300%);
+      width: 200px;
+      height: 130px;
+    }
+    li {
+      display: inline-block;
+      margin-left: 1.5rem;
+      color: var(--white);
+
+      span {
+        border: 1px solid var(--white);
+        &:first-child {
+          margin-right: 2rem;
+        }
+        &:last-child {
+          margin-left: 2rem;
+        }
+      }
+    }
+    p {
+      margin-left: 1.5rem;
+      color: var(--gray-800);
+    }
+  }
+  .data {
+    margin-top: 4rem;
+    li {
+      display: flex;
+      color: var(--white);
+      margin-bottom: 1rem;
+      label {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        background-color: rgba(175, 178, 177, 0.8);
+      }
+      p {
+        margin-left: 1rem;
+      }
+    }
+  }
+  .about {
+    margin-top: 4rem;
+    h2 {
+      color: var(--white);
+    }
+    p {
+      margin-top: 2rem;
+      color: var(--gray-800);
+    }
+  }
+  div {
+    width: 50%;
+  }
+}
+
+.footerContainerDark {
+  height: 30vh;
+  background-color: var(--black-500);
+  display: flex;
+  .logo {
+    display: grid;
+
+    img {
+      margin: 2rem 0 1.5rem 5rem;
+      width: 200px;
+      height: 130px;
+    }
+    li {
+      display: inline-block;
+      margin-left: 1.5rem;
+      color: var(--orange-200);
+
+      span {
+        border: 1px solid var(--orange-200);
+        &:first-child {
+          margin-right: 2rem;
+        }
+        &:last-child {
+          margin-left: 2rem;
+        }
+      }
+    }
+    p {
+      margin-left: 1.5rem;
+      color: var(--gray-200);
+    }
+  }
+  .data {
+    margin-top: 4rem;
+    li {
+      display: flex;
+      color: var(--orange-200);
+      margin-bottom: 1rem;
+      label {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        background-color: rgba(175, 178, 177, 0.8);
+      }
+      p {
+        margin-left: 1rem;
+      }
+    }
+  }
+  .about {
+    margin-top: 4rem;
+    h2 {
+      color: var(--white);
+    }
+    p {
+      margin-top: 2rem;
+      color: var(--gray-200);
+    }
+  }
+  div {
+    width: 50%;
+  }
+}

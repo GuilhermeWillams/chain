@@ -1,0 +1,166 @@
+.logoResize {
+  margin: 2rem 0 0 4rem;
+  width: 6.25rem;
+  height: 4.0625rem;
+  transition: 0.2s all;
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.loginContainer {
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  a {
+    h5 {
+      cursor: pointer;
+      transition: 0.2s all;
+      &:hover {
+        color: var(--orange-500);
+      }
+    }
+  }
+}
+.inputContainer {
+  width: 40vw;
+
+  * {
+    margin-bottom: 1rem;
+  }
+
+  div {
+    justify-content: center;
+    display: grid;
+    margin-top: 10rem;
+
+    h4 {
+      margin: 0 auto 0.5rem auto;
+    }
+
+    input {
+      outline: none;
+      border: 1px solid var(--gray-100);
+      padding: 0.4rem;
+      border-radius: 0.5rem;
+      transition: 0.2s all;
+      &::placeholder {
+        color: var(--gray-200);
+      }
+      &:focus {
+        box-shadow: rgba(240, 173, 86, 0.12) 0px 2px 4px 0px,
+          rgba(240, 173, 86, 0.32) 0px 2px 16px 0px;
+        border: 1px solid var(--orange-200);
+      }
+    }
+
+    span {
+      height: 0;
+      translate: 90% -3rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: 0.2s all;
+      color: var(--gray-200);
+      &:hover {
+        color: var(--orange-200);
+      }
+    }
+    label {
+      transition: 0.2s all;
+      margin: auto;
+      font-size: 0.6rem;
+      color: var(--red);
+      height: 2rem;
+    }
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20rem;
+      height: 3.5rem;
+      border: none;
+      padding: 0.3rem;
+      border-radius: 2rem;
+      background-color: var(--orange-200);
+      color: var(--white);
+      font-weight: bold;
+      transition: 0.2s all;
+      p {
+        display: flex;
+        margin: auto;
+      }
+      &:hover {
+        background-color: var(--orange-500);
+      }
+    }
+  }
+}
+.imageContainer {
+  width: 60vw;
+  height: 100vh;
+  background: linear-gradient(42deg, #f0ad56, #808080);
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationName 11s ease infinite;
+  -moz-animation: AnimationName 11s ease infinite;
+  animation: AnimationName 11s ease infinite;
+}
+.loading {
+  pointer-events: none;
+  filter: brightness(70%);
+}
+.loader {
+  position: absolute;
+  translate: 0 -5rem;
+  margin: auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 1rem;
+  border: 0.2rem solid var(--white);
+  border-style: dotted;
+  animation: spin 1.2s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 97% 0%;
+  }
+  50% {
+    background-position: 4% 100%;
+  }
+  100% {
+    background-position: 97% 0%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 97% 0%;
+  }
+  50% {
+    background-position: 4% 100%;
+  }
+  100% {
+    background-position: 97% 0%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 97% 0%;
+  }
+  50% {
+    background-position: 4% 100%;
+  }
+  100% {
+    background-position: 97% 0%;
+  }
+}

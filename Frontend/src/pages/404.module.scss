@@ -1,0 +1,52 @@
+.section404 {
+  height: 100vh;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: row;
+}
+.plug {
+  width: 70vw;
+  margin-left: auto;
+}
+.text {
+  position: absolute;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 25vh;
+  margin-left: auto;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+  h1 {
+    font-size: 5rem;
+    color: var(--orange-200);
+  }
+  h2 {
+    font-size: 2.5rem;
+    color: var(--orange-200);
+  }
+  button {
+    color: var(--white);
+    padding: 0.5rem;
+    padding-inline: 2.5rem;
+    border: 0.00625rem solid var(--orange-200);
+    border-radius: 1.5rem;
+    background-color: var(--orange-200);
+    transition: 0.2s;
+
+    span {
+      font-weight: 800;
+    }
+
+    &:hover {
+      border-color: var(--orange-500);
+      background-color: var(--orange-500);
+    }
+  }
+}

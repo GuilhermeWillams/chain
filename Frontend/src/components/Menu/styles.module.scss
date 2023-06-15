@@ -1,0 +1,128 @@
+.menuItens {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  div {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    a {
+      text-decoration: none;
+    }
+    svg {
+      margin-left: 0.5rem;
+      translate: 0 0.2rem;
+    }
+    &:first-of-type {
+      margin-right: 4rem;
+    }
+    &:hover {
+      h2 {
+        transition: 0.2s all;
+        color: var(--orange-200) !important;
+      }
+    }
+  }
+}
+.headerContainerLight {
+  background: var(--white);
+  height: 6rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 2rem 4rem;
+
+  li:first-child {
+    margin-left: 30rem;
+  }
+  li {
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    margin-left: 6rem;
+  }
+
+  button {
+    color: var(--white);
+    margin-left: auto;
+    padding: 0.5rem;
+    padding-inline: 2.5rem;
+    border: 0.00625rem solid var(--orange-200);
+    border-radius: 1.5rem;
+    background-color: var(--orange-200);
+    transition: 0.2s;
+
+    span {
+      font-weight: 800;
+    }
+
+    &:hover {
+      border-color: var(--orange-500);
+      background-color: var(--orange-500);
+    }
+  }
+}
+.logoResize {
+  width: 6.25rem;
+  height: 4.0625rem;
+
+  cursor: pointer;
+  transition: 0.2s all;
+}
+.iconColor {
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover {
+    color: var(--orange-200);
+  }
+}
+.slideToggle {
+  position: relative;
+  display: inline-block;
+  width: 3.75rem;
+  height: 2.125rem;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      background-color: var(--orange-300);
+    }
+    &:focus + .slider {
+      box-shadow: 0 0 0.0625px var(--orange-300);
+    }
+    &:checked + .slider::before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+  }
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--gray-200);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 2.125rem;
+  &::before {
+    position: absolute;
+    content: "";
+    height: 1.625rem;
+    width: 1.625rem;
+    left: 0.25rem;
+    bottom: 0.25rem;
+    background-color: var(--white);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+}

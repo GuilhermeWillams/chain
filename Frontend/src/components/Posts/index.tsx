@@ -1,0 +1,265 @@
+import styles from "./styles.module.scss";
+import moment from "moment";
+import "moment/locale/pt-br";
+import { useEffect, useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import { FaTrashAlt } from "react-icons/fa";
+import { api } from "../../services/api";
+import { VscPass } from "react-icons/vsc";
+import ProfileMenu from "../ProfileMenu";
+import Link from "next/link";
+import { sanitize } from "htmlescape";
+import { MdArrowLeft, MdArrowRight, MdReportOff } from "react-icons/md";
+
+export default function Posts(props: any) {
+  const [modal, setModal] = useState(false);
+  const [modalContent, setModalContent] = useState("");
+  const [modalType, setModalType] = useState("");
+  const [toEdit, setToEdit] = useState(null);
+  const [pageData, setPageData] = useState<Array<object> | string>("");
+  const [isSaving, setIsSaving] = useState(false);
+  const [isEdited, setIsEdited] = useState(false);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [maxPage, setMaxPage] = useState(1);
+  useEffect(() => {
+    getRecord();
+  }, [pageNumber]);
+
+  useEffect(() => {
+    setPageNumber(1);
+  }, [props]);
+  async function getRecord() {
+    if (props.adm) {
+      const { data } = await api.get(`reportedPosts?pageNumber=${pageNumber}`);
+
+      if (data) {
+        setPageData(data.posts);
+        setMaxPage(Math.ceil(data.amountReportedPosts / 10));
+      }
+    } else {
+      const { data } = await api.get(
+        `userPosts/${props.userLocal.id}?pageNumber=${pageNumber}`
+      );
+
+      if (data) {
+        setPageData(data.posts);
+        setMaxPage(Math.ceil(data.amountUserPosts / 10));
+      }
+    }
+  }
+  function nextPage() {
+    setPageNumber(pageNumber + 1);
+  }
+  function previousPage() {
+    setPageNumber(pageNumber - 1);
+  }
+  function renderPages() {
+    const divs = [];
+
+    for (let i = 1; i <= maxPage; i++) {
+      divs.push(
+        <p
+          key={i}
+          style={pageNumber === i ? { color: "#f0ad56" } : {}}
+          onClick={() => setPageNumber(i)}
+        >
+          {i}
+        </p>
+      );
+    }
+    return divs;
+  }
+  function handleModal(post: any, toEdit: any, type: any) {
+    setModal(true);
+    setModalContent(post);
+    setToEdit(toEdit);
+    setModalType(type);
+  }
+  function closeModal() {
+    setModal(false);
+    setIsEdited(false);
+  }
+  async function deletePost() {
+    try {
+      setModalContent("Salvando...");
+      setIsSaving(true);
+      const { data } = await api.delete(`deletePost/${toEdit}`);
+      getRecord();
+      setIsSaving(false);
+      setModalContent("Deletado com sucesso!");
+      setIsEdited(true);
+    } catch (e) {
+      setModalContent(
+        "Erro de servidor! Atualize a página ou tente novamente mais tarde."
+      );
+      setIsSaving(false);
+      console.log(e);
+    }
+  }
+  async function removeReport() {
+    try {
+      setModalContent("Salvando...");
+      setIsSaving(true);
+      const { data } = await api.patch(`removeReportPost/${toEdit}`);
+      getRecord();
+      setIsSaving(false);
+      setModalContent("Denúncia removida!");
+      setIsEdited(true);
+    } catch (e) {
+      setModalContent(
+        "Erro de servidor! Atualize a página ou tente novamente mais tarde."
+      );
+      setIsSaving(false);
+      console.log(e);
+    }
+  }
+  return (
+    <div className={styles.postSection}>
+      <ProfileMenu />
+
+      {pageData == "" ? (
+        <div className={styles.noPost}>
+          <h1>
+            {props.adm
+              ? "Nenhuma denúncia feita em postagens."
+              : "Realize alguma postagem no fórum para listar aqui."}
+          </h1>
+        </div>
+      ) : (
+        <>
+          <h1>{props.adm ? "Postagens denúnciadas" : "Suas postagens"}</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Respostas</th>
+                <th>Título</th>
+                <th>Postagem</th>
+                <th>Data da Postagem</th>
+                <th>Última edição</th>
+                <th>Tópico</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {!Array.isArray(pageData)
+                ? null
+                : pageData.map((post: any, index: number) => {
+                    return (
+                      <tr key={post.id}>
+                        <td>{post.Reply.length}</td>
+                        <td>
+                          <Link href={`/forum/post/${post.id}`}>
+                            {post.title}
+                          </Link>
+                        </td>
+                        <td>
+                          <div
+                            dangerouslySetInnerHTML={{
+                              __html: sanitize(post.desc),
+                            }}
+                          />
+                        </td>
+                        <td>
+                          {moment(post.postDate).format("L") +
+                            " às " +
+                            moment(post.postDate).format("LT")}
+                        </td>
+                        <td>
+                          {post.postDate === post.lastEdit
+                            ? "-"
+                            : moment(post.lastEdit).format("L")}
+                        </td>
+                        <td>{post.topic.topic}</td>
+                        <td>
+                          <span
+                            onClick={() =>
+                              handleModal(
+                                "Você deseja mesmo deletar esta postagem?",
+                                post.id,
+                                "delete"
+                              )
+                            }
+                          >
+                            <FaTrashAlt />
+                          </span>
+                          {props.adm && (
+                            <span
+                              onClick={() =>
+                                handleModal(
+                                  "Você deseja mesmo remover a denúncia?",
+                                  post.id,
+                                  "remove"
+                                )
+                              }
+                            >
+                              <MdReportOff />
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+            </tbody>
+          </table>
+        </>
+      )}
+      <div className={styles.tableFooter}>
+        <h5 onClick={() => previousPage()}>
+          {pageNumber !== 1 && <MdArrowLeft />}
+        </h5>
+        <div className={styles.pagesAmount}>{renderPages()}</div>
+        <h5 onClick={() => nextPage()}>
+          {pageNumber !== maxPage && <MdArrowRight />}
+        </h5>
+      </div>
+      <div
+        className={styles.modalDelete}
+        style={modal ? { opacity: 1 } : { opacity: 0, pointerEvents: "none" }}
+      >
+        <div>
+          {isEdited && (
+            <AiOutlineClose
+              className={styles.closeModal}
+              onClick={() => closeModal()}
+            />
+          )}
+
+          <p>
+            {isEdited ? (
+              <>
+                <span style={{ color: "#198754" }}>
+                  {modalContent}
+                  <VscPass
+                    style={{
+                      fontSize: "1.5rem",
+                      marginLeft: "0.5rem",
+                      translate: "0 0.3rem",
+                    }}
+                  />
+                </span>
+              </>
+            ) : (
+              modalContent
+            )}
+          </p>
+          {isSaving ? (
+            <label className={styles.loader} />
+          ) : !isEdited ? (
+            <>
+              <button onClick={() => closeModal()}>Cancelar</button>
+              <button
+                onClick={
+                  modalType === "delete"
+                    ? () => deletePost()
+                    : () => removeReport()
+                }
+              >
+                {modalType === "delete" ? "Deletar" : "Remover"}
+              </button>
+            </>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,84 @@
+.profileContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  right: 6rem;
+  top: 2rem;
+  align-items: center;
+  color: var(--gray-800);
+  font-size: 0.9rem;
+
+  img {
+    object-fit: cover;
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s all;
+    &:hover {
+      filter: brightness(80%);
+    }
+  }
+  div {
+    z-index: 2;
+    border: 1px solid var(--gray-100);
+    position: absolute;
+    margin-top: 25rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 10rem;
+    background-color: var(--white);
+    transition: 0.2s all;
+
+    p {
+      margin-top: 1rem;
+      display: flex;
+      width: 90%;
+      height: 3rem;
+      transition: 0.2s all;
+      justify-content: left;
+      align-items: center;
+      border-radius: 0.4rem;
+      margin-left: 0.5rem;
+
+      cursor: pointer;
+      span {
+        font-size: 1.1rem;
+        margin-right: 0.5rem;
+        margin-left: 0.2rem;
+        translate: 0 0.2rem;
+      }
+      &:hover {
+        background-color: var(--gray-100);
+      }
+    }
+  }
+  p {
+    margin-right: 1rem;
+  }
+}
+.signUp {
+  cursor: pointer;
+  transition: 0.2s all;
+  margin-right: 1rem;
+  &:hover {
+    color: var(--orange-200);
+  }
+}
+.signIn {
+  color: var(--white);
+  margin-left: auto;
+  padding: 0.5rem;
+  padding-inline: 2rem;
+  border: 0.00625rem solid var(--orange-200);
+  border-radius: 1.5rem;
+  background-color: var(--orange-200);
+  transition: 0.2s;
+  span {
+    font-weight: 800;
+  }
+  &:hover {
+    border-color: var(--orange-500);
+    background-color: var(--orange-500);
+  }
+}
