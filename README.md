@@ -1,6 +1,6 @@
 
   <h1 align="center">
-   <img alt="Chain" title="Chain" width="200" height="80" src="https://user-images.githubusercontent.com/41392965/246478765-9d904569-44c2-46b6-9f30-321e63021801.png">
+   <img alt="Chain" title="Chain" width="200" height="130" src="https://user-images.githubusercontent.com/41392965/246478765-9d904569-44c2-46b6-9f30-321e63021801.png">
 </h1>
 
 <p align="center">
