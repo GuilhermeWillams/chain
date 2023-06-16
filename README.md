@@ -27,7 +27,7 @@ A plataforma conta também com um fórum para auxiliar os usuários em alguns ca
 
 ## 👨‍💻 Fundadores
 
-Guilherme Willams [`@GuilhermeWillams`](https://github.com/GuilhermeWillams)
+Guilherme Willams [`@GuilhermeWillams`](https://github.com/GuilhermeWillams)<br>
 Kevin Lima [`@Okama-Way`](https://github.com/Okama-Way)
 
 ## 💻 Colaboração
