@@ -28,11 +28,12 @@ A plataforma conta também com um fórum para auxiliar os usuários em alguns ca
 
 ## 👨‍💻 Fundadores
 
--Documentação: Kevin Lima (@Okama-way(https://github.com/Okama-Way))
--Prototipação: Guilherme Willams - Kevin Lima
--Estrutura dos scripts de rede - Kevin Lima
--Arquitetura - Guilherme Willams
--Desenvolvimento  - Guilherme Willams
+- Documentação: Kevin Lima ([`@Okama-Way`](https://github.com/Okama-Way))
+- Prototipação: Guilherme Willams - Kevin Lima
+- Estrutura dos scripts de rede - Kevin Lima
+- Arquitetura - Guilherme Willams
+- Desenvolvimento  - Guilherme Willams
+
 
 
 ## 🚀 Como executar
