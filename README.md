@@ -15,7 +15,6 @@
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-
 <img alt="Node" width="80px" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
 <img alt="Next" width="80px" src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white">
 <img alt="TypeScript" width="80px" height="21px" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white">
@@ -28,7 +27,12 @@ A plataforma conta também com um fórum para auxiliar os usuários em alguns ca
 
 ## 👨‍💻 Fundadores
 
-- Documentação: Kevin Lima ([`@Okama-Way`](https://github.com/Okama-Way))
+Guilherme Willams [`@GuilhermeWillams`](https://github.com/GuilhermeWillams)
+Kevin Lima [`@Okama-Way`](https://github.com/Okama-Way)
+
+## 💻 Colaboração
+
+- Documentação: Kevin Lima
 - Prototipação: Guilherme Willams - Kevin Lima
 - Estrutura dos scripts de rede - Kevin Lima
 - Arquitetura - Guilherme Willams
