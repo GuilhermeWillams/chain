@@ -32,11 +32,11 @@ Kevin Lima [`@Okama-Way`](https://github.com/Okama-Way)
 
 ## 💻 Colaboração
 
-- [`Documentação`](https://fatecspgov-my.sharepoint.com/:w:/g/personal/kevin_silva13_fatec_sp_gov_br/EU2eGMld-MVEmxQ-b7LK1goBnGJBYu_gVJNsbDdEnN3Hyg?e=CfsqJy) - Kevin Lima
+- [`Documentação`](https://fatecspgov-my.sharepoint.com/:w:/g/personal/kevin_silva13_fatec_sp_gov_br/EU2eGMld-MVEmxQ-b7LK1goBnGJBYu_gVJNsbDdEnN3Hyg?e=CfsqJy): Kevin Lima
 - Prototipação: Guilherme Willams - Kevin Lima
-- Estrutura dos scripts de rede - Kevin Lima
-- Arquitetura - Guilherme Willams
-- Desenvolvimento  - Guilherme Willams
+- Estrutura dos scripts de rede: Kevin Lima
+- Arquitetura: Guilherme Willams
+- Desenvolvimento: Guilherme Willams
 
 
 
